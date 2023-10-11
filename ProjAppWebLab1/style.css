@@ -24,28 +24,7 @@
 }
 .textHome > h1{
    font-family: 'Anonymous Pro', monospace;
-   border-right: 2px solid white;  
-   animation: typewriter 4s steps(44) normal, blinkTextCursor 0.5s infinite;
-   white-space: nowrap;
    overflow: hidden;
-}
-
-@keyframes typewriter{
-   from{
-      width: 0;
-   }
-   to {
-      width: 415px;
-   }
-}
-
-@keyframes blinkTextCursor{
-   form{
-      border-right-color:hsl(0%, 0%, 80%)
-   }
-   to {
-      border-right-color: transparent;
-   }
 }
 
 a:link{
