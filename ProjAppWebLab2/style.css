@@ -22,9 +22,31 @@
    font-size: 24px;
    color: white;
 }
+
 .textHome > h1{
    font-family: 'Anonymous Pro', monospace;
    overflow: hidden;
+   border-right: 2px solid white;  
+   animation: typewriter 4s steps(44) normal, blinkTextCursor 0.5s infinite;
+   white-space: nowrap;
+}
+
+@keyframes typewriter{
+   from{
+      width: 0;
+   }
+   to {
+      width: 415px;
+   }
+}
+
+@keyframes blinkTextCursor{
+   form{
+      border-right-color:hsl(0%, 0%, 80%)
+   }
+   to {
+      border-right-color: transparent;
+   }
 }
 
 a:link{
@@ -64,6 +86,7 @@ a.active, a:hover{
    background: #ff00e1c2;
 }
 
+
 .hero{
    width: 100%;
    height: 100vh;
@@ -75,7 +98,7 @@ a.active, a:hover{
    justify-content: center;
 }
 
-form{
+.hero > form{
    width: 90%;
    max-width: 600px;
 }
@@ -85,7 +108,16 @@ form{
    position: relative;
 }
 
-input, textarea{
+.row > .input-group > input, textarea{
+   width: 100%;
+   padding:10px;
+   outline: 0;
+   border: 1px solid white;
+   color: white;
+   background: transparent;
+   font-size: 15px;
+}
+.input-group > input[type = "text"]{
    width: 100%;
    padding:10px;
    outline: 0;
@@ -95,7 +127,7 @@ input, textarea{
    font-size: 15px;
 }
 
-label{
+.input-group >  label{
    height: 100%;
    position: absolute;
    left: 0;
@@ -163,9 +195,78 @@ td{
    align-items: center;
 }
 
+/* Button JS */
 
+.buttons > form > input{
+   width: 45vw;
+   font-size: inherit;
+   color: inherit;
+   background:none;
+   cursor: pointer;
+   padding: 25px 80px;
+   display: inline-block;
+   margin: 15px 30px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   font-weight: 700;
+   outline: none;
+   position: relative;
+   transition: all 0.3s;
+}
 
+.buttons >form> #żółty{
+   background: yellow;
+}
 
+.buttons >form> #czarny{
+   background: black;
+   color: white;
+}
 
+.buttons >form> #biały{
+   background: white;
+}
 
+.buttons >form> #zielony{
+   background: green;
+}
+
+.buttons >form> #niebieski{
+   background: blue;
+}
+
+.buttons >form> #pomarańczowy{
+   background: orange;
+}
+
+.buttons >form> #szary{
+   background: grey;
+}
+
+.buttons >form> #czerwony{
+   background: red;
+}
+
+.buttons >form> #fioletowy{
+   background: violet;
+}
+
+.buttons >form> #aquamarine{
+   background: aquamarine;
+}
+
+/* Koniec Button JS */
+
+#date{
+   color: white;
+   padding: 0px;
+   margin: 0px;
+}
+
+#zegar{
+   margin:auto;
+   color:white;
+   margin-right: 400px;
+   margin-left: 50px;
+}
 
