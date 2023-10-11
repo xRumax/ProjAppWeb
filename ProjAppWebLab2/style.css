@@ -1,0 +1,171 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: none;
+ }
+
+.background{
+   width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(rgba(0,0,0,0.3), hsl(223, 73%, 43%)), url(background.jpg);
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.textHome{
+   margin: 70px;
+   text-align: right;
+   font-size: 24px;
+   color: white;
+}
+.textHome > h1{
+   font-family: 'Anonymous Pro', monospace;
+   overflow: hidden;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+body{
+    font-family:Roboto;
+}
+
+nav{
+    background: linear-gradient(to top, rgb(42, 15, 92),rgba(20, 83, 145, 0.895) );
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float:right;
+    margin-right: 20px; 
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+a.active, a:hover{
+   background: #ff00e1c2;
+}
+
+.hero{
+   width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(rgba(0, 0, 0, 0.3), hsl(223, 73%, 43%)), url(background2.jpg);
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+form{
+   width: 90%;
+   max-width: 600px;
+}
+
+.input-group{
+   margin-bottom: 30px;
+   position: relative;
+}
+
+input, textarea{
+   width: 100%;
+   padding:10px;
+   outline: 0;
+   border: 1px solid white;
+   color: white;
+   background: transparent;
+   font-size: 15px;
+}
+
+label{
+   height: 100%;
+   position: absolute;
+   left: 0;
+   top: 0;
+   padding: 10px;
+   color: white;
+   cursor: text;
+   transition: 0.2s;
+}
+
+button{
+   padding: 10px 0;
+   color: white;
+   outline: none;
+   background: transparent;
+   border: 1px solid white;
+   width: 104%;
+   cursor: pointer;
+}
+
+input:focus~label, input:valid~label, textarea:focus~label, textarea:valid~label{
+   top: -35px;
+   font-size: 14px;
+}
+
+.row{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.row .input-group{
+   flex-basis: 48%;
+}
+
+img{
+   width: 500px;
+   height: 300px;
+   margin: 10px;
+   padding: 10px;
+}
+
+.textGallery{
+   margin: 10px;
+   padding: 20px;
+}
+
+table{
+   border-collapse: collapse;
+   width: 100%;
+   height: 50px;
+   margin-top: 60px;
+}
+
+th{
+   border: 1px solid black;
+   height: 80px;
+   font-size: 20px;
+}
+
+td{
+   height: 300px;
+   border: 1px solid black;
+   text-align: center;
+   align-items: center;
+}
+
+
+
+
+
+
+
