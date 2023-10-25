@@ -1,9 +1,10 @@
-<?
-    $nr_indeksu = '167364';
-    $nr_grupy='4';
+<?php 
+include("vars.php");
+echo "Imie: $name <br/> Numer indexu: $index <br/> Nr grupy: $group_no"; 
 
-    echo 'Dawid Rumiński'.$nr_indeksu.'grupa'.$nrGrupy.'<br/><br/>';
+require_once("test.php");
+echo "<br/><br/>Marka: $car_brand <br/> Model: $car_model <br/> Rok produkcji: $car_year"; 
 
-    echo 'Zastosowanie metody include() <br/>';
+if($a>$b)
 
 ?>
