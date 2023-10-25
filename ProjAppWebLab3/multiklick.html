@@ -1,0 +1,49 @@
+<<<<<<< HEAD
+<html>
+<head>
+    <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="animacjaTestowa1" class="test-block">Kliknij, abym urósł</div>
+
+<script>
+
+$("#animacjaTestowa1").on("click",function(){
+    if (!$(this).is(":animated")){
+        $(this).animate({
+            width: "+="+50,
+            height: "+="+10,
+            opacity: "3+="+0.1,
+            duration: 3000
+        });
+    }
+});
+        </script>
+</body>
+</html>
+=======
+<html>
+<head>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="animacjaTestowa1" class="test-block">Kliknij, abym urósł</div>
+
+<script>
+
+$("#animacjaTestowa1").on("click",function(){
+    if (!$(this).is(":animated")){
+        $(this).animate({
+            width: "+="+50,
+            height: "+="+10,
+            opacity: "-="+0.1,
+            duration: 3000
+        });
+    }
+});
+        </script>
+</body>
+</html>
+>>>>>>> 8f1937d27b89d7dafef47ea9ad8039b0a8c7fd2c
