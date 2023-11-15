@@ -58,6 +58,7 @@ body{
 }
 
 nav{
+    position:top;
     background: linear-gradient(to top, rgb(42, 15, 92),rgba(20, 83, 145, 0.895) );
     height: 80px;
     width: 100%;
@@ -286,4 +287,10 @@ td{
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
+}
+
+.films{
+	margin: auto;
+	padding: 0;
+	text-align: center;
 }
