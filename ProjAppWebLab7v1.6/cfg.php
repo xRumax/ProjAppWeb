@@ -1,13 +1,19 @@
 <?php
+$login = 'admin';
+$pass = 'admin';
+
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
-$baza = 'gry_strona';
+$baza = 'moja_strona';
 
-$link = mysql_connect($dbhost, $dbuser, $dbpass);
-if(!$link)
-    echo '<b> przerwane połączenie </b>';
-if(!mysql_select_db($baza))
-    echo 'nie wybrano bazy';
+$link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza);
 
+if(!$link) {
+    echo '<b>Przerwane połączenie</b>';
+}
+
+if(!mysqli_select_db($link, $baza)) {
+    echo 'Nie wybrano bazy';
+}
 ?>
