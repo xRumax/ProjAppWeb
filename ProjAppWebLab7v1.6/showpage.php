@@ -1,16 +1,16 @@
 <?php
 
-include('html/TOP10.html');
+#include('html/TOP10.html');
 include("cfg.php");
-$id_clear = htmlspecialchars($id);
+
 function PokazPodstrone($id) {
-    global $link; // Dodane, aby uzyskać dostęp do połączenia z bazą danych
+    global $link;
 
     $id_clear = htmlspecialchars($id);
 
     $query = "SELECT * FROM page_list WHERE id='$id_clear' LIMIT 1";
-    $result = mysqli_query($link, $query); // Zmiana funkcji mysql_query na mysqli_query
-    $row = mysqli_fetch_array($result); // Zmiana funkcji mysql_fetch_array na mysqli_fetch_array
+    $result = mysqli_query($link, $query);
+    $row = mysqli_fetch_array($result);
 
     if(empty($row['id'])) {
         $web = '[nie_znaleziono_strony]';
@@ -19,8 +19,8 @@ function PokazPodstrone($id) {
     }
     return $web;
 }
-$id_strony = 2; // Przykładowe ID strony
-$zawartosc_strony = PokazPodstrone($id_strony);
-echo $zawartosc_strony;
+// $id_strony = 2; // Przykładowe ID strony
+// $zawartosc_strony = PokazPodstrone($id_strony);
+// echo $zawartosc_strony;
 
 ?>
