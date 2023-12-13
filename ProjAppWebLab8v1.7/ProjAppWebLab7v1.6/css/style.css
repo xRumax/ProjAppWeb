@@ -1,0 +1,298 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: none;
+ }
+
+.background{
+   width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(rgba(0,0,0,0.3), hsl(223, 73%, 43%)), url(../img/background.jpg);
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-position: center center;
+   position: fixed;
+}
+
+.textHome{
+   margin: 70px;
+   text-align: right;
+   font-size: 24px;
+   color: white;
+}
+
+.textHome > h1{
+   font-family: 'Anonymous Pro', monospace;
+   overflow: hidden;
+   border-right: 2px solid white;  
+   animation: typewriter 4s steps(44) normal, blinkTextCursor 0.5s infinite;
+   white-space: nowrap;
+}
+
+@keyframes typewriter{
+   from{
+      width: 0;
+   }
+   to {
+      width: 415px;
+   }
+}
+
+@keyframes blinkTextCursor{
+   form{
+      border-right-color:hsl(0%, 0%, 80%)
+   }
+   to {
+      border-right-color: transparent;
+   }
+}
+
+a:link{
+    text-decoration: none;
+}
+
+body{
+    font-family:Roboto;
+}
+
+nav{
+    position:top;
+    background: linear-gradient(to top, rgb(42, 15, 92),rgba(20, 83, 145, 0.895) );
+    height: 85px;
+    width: 100%;
+}
+
+nav ul{
+    float:right;
+    margin-right: 20px; 
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+a.active, a:hover{
+   background: #ff00e1c2;
+}
+
+
+.hero{
+   width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(rgba(0, 0, 0, 0.3), hsl(223, 73%, 43%)), url(../img/background2.jpg);
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.hero > form{
+   width: 90%;
+   max-width: 600px;
+}
+
+.input-group{
+   margin-bottom: 30px;
+   position: relative;
+}
+
+.row > .input-group > input, textarea{
+   width: 100%;
+   padding:10px;
+   outline: 0;
+   border: 1px solid white;
+   color: white;
+   background: transparent;
+   font-size: 15px;
+}
+.input-group > input[type = "text"]{
+   width: 100%;
+   padding:10px;
+   outline: 0;
+   border: 1px solid white;
+   color: white;
+   background: transparent;
+   font-size: 15px;
+}
+
+.input-group >  label{
+   height: 100%;
+   position: absolute;
+   left: 0;
+   top: 0;
+   padding: 10px;
+   color: white;
+   cursor: text;
+   transition: 0.2s;
+}
+
+button{
+   padding: 10px 0;
+   color: white;
+   outline: none;
+   background: transparent;
+   border: 1px solid white;
+   width: 104%;
+   cursor: pointer;
+}
+
+input:focus~label, input:valid~label, textarea:focus~label, textarea:valid~label{
+   top: -35px;
+   font-size: 14px;
+}
+
+.row{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.row .input-group{
+   flex-basis: 48%;
+}
+
+img{
+   width: 500px;
+   height: 300px;
+   margin: 10px;
+   padding: 10px;
+}
+
+.textGallery{
+   margin: 10px;
+   padding: 20px;
+}
+
+table{
+   border-collapse: collapse;
+   width: 100%;
+   height: 50px;
+   margin-top: 60px;
+}
+
+th{
+   border: 1px solid black;
+   height: 80px;
+   font-size: 20px;
+}
+
+td{
+   height: 300px;
+   border: 1px solid black;
+   text-align: center;
+   align-items: center;
+}
+
+/* Button JS */
+
+.buttons > form > input{
+   width: 45vw;
+   font-size: inherit;
+   color: inherit;
+   background:none;
+   cursor: pointer;
+   padding: 25px 80px;
+   display: inline-block;
+   margin: 15px 30px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   font-weight: 700;
+   outline: none;
+   position: relative;
+   transition: all 0.3s;
+}
+
+.buttons >form> #żółty{
+   background: yellow;
+}
+
+.buttons >form> #czarny{
+   background: black;
+   color: white;
+}
+
+.buttons >form> #biały{
+   background: white;
+}
+
+.buttons >form> #zielony{
+   background: green;
+}
+
+.buttons >form> #niebieski{
+   background: blue;
+}
+
+.buttons >form> #pomarańczowy{
+   background: orange;
+}
+
+.buttons >form> #szary{
+   background: grey;
+}
+
+.buttons >form> #czerwony{
+   background: red;
+}
+
+.buttons >form> #fioletowy{
+   background: violet;
+}
+
+.buttons >form> #aquamarine{
+   background: aquamarine;
+}
+
+/* Koniec Button JS */
+
+#date{
+   color: white;
+   padding: 0px;
+   margin: 0px;
+}
+
+#zegar{
+   margin:auto;
+   color:white;
+   margin-right: 400px;
+   margin-left: 50px;
+}
+
+.test-block{
+   width: 200px;
+   border: 2px solid rgba(71,236,30,1);
+   background:rgba(71,236,30,0.7);
+   text-align: center;
+   color: #000;
+   padding: 20px;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.films{
+	margin: auto;
+	padding: 0;
+	text-align: center;
+}

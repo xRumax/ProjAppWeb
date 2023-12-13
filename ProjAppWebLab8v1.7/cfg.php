@@ -1,6 +1,7 @@
 <?php
 $login = 'admin';
 $pass = 'admin';
+$adminEmail = "admin@admin.pl";
 
 $dbhost = 'localhost';
 $dbuser = 'root';
