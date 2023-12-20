@@ -2,6 +2,7 @@
 $login = 'admin';
 $pass = 'admin';
 $adminEmail = "admin@admin.pl";
+$odbiorca = "admin123@admin.pl";
 
 $dbhost = 'localhost';
 $dbuser = 'root';

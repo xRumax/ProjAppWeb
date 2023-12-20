@@ -22,7 +22,6 @@ function PokazKontakt()
 
     return $form;
 }
-echo PokazKontakt();
 
 function WyslijMailKontakt($odbiorca)
 {
@@ -48,6 +47,9 @@ function WyslijMailKontakt($odbiorca)
     }
 }
 
+
+echo PokazKontakt();
+
 function Zapomniane_haslo()
 {
     $wynik = '
@@ -71,14 +73,11 @@ echo Zapomniane_haslo();
 
 function PrzypomnijHaslo($adminEmail)
 {
-    // Simulated password reminder
     $subject = "Przypomnienie hasła";
-    $body = "Twoje hasło to: 123456"; // In a real scenario, generate a secure random password
+    $body = "Twoje hasło to: 123456";
 
-    // Admin's email address
     $adminRecipient = $adminEmail;
 
-    // Check if the email was sent successfully
     if (WyslijMailKontakt($adminRecipient)) {
         echo '[wiadomosc_wyslana]';
     } else {
