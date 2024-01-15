@@ -28,15 +28,23 @@ function DodajNowaKategorie()
         $nazwa = $_POST['category_name_add'];
         $matka = $_POST['id_mother_add'];
 
-        $query = "INSERT INTO shop (nazwa, matka) VALUES ('$nazwa', '$matka')";
+        // Sprawdź, jakie jest ostatnie id w tabeli kategorii
+        $checkQuery = "SELECT MAX(id) as maxId FROM shop";
+        $checkResult = mysqli_query($link, $checkQuery);
+        $row = mysqli_fetch_assoc($checkResult);
+
+        // Ustaw id na wartość ostatniego id + 1
+        $newId = $row['maxId'] + 1;
+
+        $query = "INSERT INTO shop (id, nazwa, matka) VALUES ('$newId', '$nazwa', '$matka')";
+
         $result = mysqli_query($link, $query);
 
         if ($result) {
             echo "Pomyślnie dodano podstronę!";
-            header('Location: shop.php');
+            // Przekierowanie do shop.php
+            echo "<script>window.location.href='shop.php';</script>";
             exit();
-        } else {
-            echo "Błąd podczas dodawania podstrony: " . mysqli_error($link);
         }
     }
 }
@@ -51,9 +59,9 @@ function FormularzEdycji()
         <div class="edycja">
             <form method="post" name="EditForm" enctype="multipart/form-data" action="' . $_SERVER['REQUEST_URI'] . '">
                 <table class="edycja">
-                    <tr><td class="edit_4t"><b>Id kategorii: <b/></td><td><input type="text" name="id_category" class="edycja" /></td></tr>
-                    <tr><td class="edit_4t"><b>Matka kategorii: <b/></td><td><input type="text" name="category_mother" class="edycja" /></td></tr>
+                    <tr><td class="edit_4t"><b>Id kategorii: <b/></td><td><input type="text" name="category_id" class="edycja" /></td></tr>
                     <tr><td class="edit_4t"><b>Nazwa kategorii: <b/></td><td><input type="text" name="category_name" class="edycja" /></td></tr>
+                    <tr><td class="edit_4t"><b>Matka: <b/></td><td><input type="text" name="category_mother" class="edycja" /></td></tr>
                     <tr><td>&nbsp;</td><td><input type="submit" name="edytor" class="edycja" value="Zmień" /></td></tr>
                 </table>
             </form>
@@ -69,26 +77,29 @@ function FormularzEdycji()
 function EdytujKategorie()
 {
     global $link;
-
     if (isset($_POST['edytor'])) {
-        $id = $_POST['id_category'];
+        $id = $_POST['category_id'];
+        $nazwa = $_POST['category_name'];
         $matka = $_POST['category_mother'];
-        $name = $_POST['category_name'];
 
-        if (!empty($id)) {
-            $query = "UPDATE shop SET category_name = '$name', category_mother = '$matka', WHERE id = $id LIMIT 1";
+        $query = "SELECT * FROM shop WHERE id = '$id' LIMIT 1";
+        $result = mysqli_query($link, $query);
+        $row = mysqli_fetch_array($result);
+        if (is_null($row)) {
+            echo '<center>Nie istnieje kategoria o id ' . $id . '!</center>';
+            exit();
+        }
 
-            $result = mysqli_query($link, $query);
-
-            if ($result) {
-                echo "Edycja zakończona pomyślnie!";
-                header("Location: shop.php");
-                exit();
-            } else {
-                echo "Błąd podczas edycji: " . mysqli_error($link);
-            }
+        $query = "UPDATE shop SET nazwa = '$nazwa', matka = '$matka' WHERE id = '$id' LIMIT 1";
+        $result = mysqli_query($link, $query);
+        if ($result) {
+            echo "<script>window.location.href='shop.php';</script>";
+            exit();
+        } else {
+            echo "<center>Błąd podczas edycji: " . mysqli_error($link) . "</center>";
         }
     }
+
 }
 
 function FormularzUsuwania()
@@ -114,7 +125,7 @@ function UsunKategorie($id)
 {
     global $link;
 
-    $query = "SELECT id FROM sklep WHERE matka = '$id'";
+    $query = "SELECT id FROM shop WHERE matka = '$id'";
     $result = mysqli_query($link, $query);
     if ($result) {
         while ($row = mysqli_fetch_array($result)) {
@@ -122,81 +133,50 @@ function UsunKategorie($id)
         }
     }
 
-    $query1 = "DELETE FROM sklep WHERE id = '$id' LIMIT 1";
+    $query1 = "DELETE FROM shop WHERE id = '$id' LIMIT 1";
     $result1 = mysqli_query($link, $query1);
     if (!$result1) {
         echo '<center>Błąd<br><center>';
     }
 }
 
-
-// function ListaKategorii($mother = 0, $ile = 0)
-// {
-//     global $link;
-
-
-//     $query = "SELECT * FROM sklep WHERE matka = '$mother'";
-//     $result = mysqli_query($link, $query);
-//     if ($result) {  
-//         $brak = 0;
-//         while ($row = mysqli_fetch_array($result)) {
-//             $brak = 1;
-//             for ($i = 0; $i < $ile; $i++) {
-//                 echo '&nbsp;&nbsp;&nbsp;<span style="color: #0000FF;">>>>>></span>';
-//             }
-//             echo ' <b><span style="color:#008000;">' . $row['id'] . '</span> ' . $row['nazwa'] . '</b><br><br>';
-//             ListaKategorii($row['id'], $ile + 1);
-//         }
-//         if ($brak == 0 && $ile == 0) {
-//             echo "</center><b>Brak kategorii<b/></center>";
-//         }
-//     }
-// }
-
-function ListaKategorii()
+function PokazKategorie($mother = 0, $ile = 0)
 {
     global $link;
-
-    $query = "SELECT * FROM shop WHERE matka = 0";
+    $query = "SELECT * FROM shop WHERE matka = '$mother'";
     $result = mysqli_query($link, $query);
-
     if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<h2>' . $row['nazwa'] . '</h2>';
-            WyswietlPodkategorie($row['id']);
+        $brak = 0;
+        while ($row = mysqli_fetch_array($result)) {
+            $brak = 1;
+            for ($i = 0; $i < $ile; $i++) {
+                echo '&nbsp;&nbsp;&nbsp;<span style="color: #0000FF;">>>>>></span>';
+            }
+            echo ' <b><span style="color:#008000;">' . $row['id'] . '</span> ' . $row['nazwa'] . '</b><br><br>';
+            PokazKategorie($row['id'], $ile + 1);
         }
-    } else {
-        echo "Błąd zapytania: " . mysqli_error($link);
-    }
-}
-
-// Funkcja wyświetlająca podkategorie (dzieci)
-function WyswietlPodkategorie($motherId)
-{
-    global $link;
-
-    $query = "SELECT * FROM shop WHERE mother_id = $motherId";
-    $result = mysqli_query($link, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        echo '<ul>';
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li>' . $row['nazwa'] . '</li>';
-            // Rekurencyjne wyświetlenie podkategorii dla aktualnej kategorii
-            WyswietlPodkategorie($row['id']);
+        if ($brak == 0 && $ile == 0) {
+            echo "</center><b>Brak kategorii<b/></center>";
         }
-        echo '</ul>';
     }
 }
 
 
 
-ListaKategorii();
 
 
+echo '<h1><b>Lista Kategorii:</b></h1>';
+PokazKategorie();
 echo FormularzDodawania();
 DodajNowaKategorie();
 echo FormularzEdycji();
 EdytujKategorie();
 echo FormularzUsuwania();
+if (isset($_POST['usun'])) {
+    $id = $_POST['id1'];
+    UsunKategorie($id);
+    echo "<script>window.location.href='shop.php';</script>";
+    exit();
+}
+
 ?>
