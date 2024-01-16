@@ -68,10 +68,9 @@ function dodajProdukt()
 
         $query = "INSERT INTO products (id, tytul, opis, data_utworzenia, 
         data_modyfikacji, data_wygasniecia, cena_netto, podatek_vat, ilosc_dostepnych_sztuk, 
-        kategoria, gabaryt, zdjecie) VALUES ('$newId', '$tytul', '$opis',
+        kategoria, gabaryt, zdjecie) VALUES ('$newId', '$tytul', '$opis', NOW(), NOW(),
         '$data_wygasniecia', '$cena_netto', '$podatek_vat', '$ilosc_dostepnych_sztuk', 
         '$kategoria', '$gabaryt', '$zdjecie')";
-
         $result = mysqli_query($link, $query);
 
         if ($result) {
@@ -229,8 +228,9 @@ function pokazProdukty()
     }
 }
 
-pokazProdukty();
+
 dodajProdukt();
 usunProdukt();
 edytujProdukt();
+pokazProdukty();
 ?>
