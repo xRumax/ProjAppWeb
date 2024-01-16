@@ -1,0 +1,169 @@
+.back-btn {
+    margin-bottom: 20px;
+}
+
+.back-btn a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.back-btn a:hover {
+    background-color: #45a049; /* Zmiana koloru po najechaniu kursorem */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logowanie {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.logowanie h1 {
+    color: #333;
+    text-align: center;
+}
+
+.logowanie table {
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.logowanie input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #44aaaa;
+}
+
+.logowanie input[type="submit"] {
+    background-color: #ffffff;
+    color: #44aaaa;
+    border: 1px solid #44aaaa;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.logowanie input[type="submit"]:hover {
+    background-color: #44aaaa;
+    color: #ffffff;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.page-list {
+    width: 50%;
+}
+
+.page-list table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.page-list th,
+.page-list td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.page-list th {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.page-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.page-list tr:hover {
+    background-color: #ddd;
+}
+
+.dodaj, .edycja, .usun {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+
+.dodaj label, .edycja label, .usun label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.dodaj input, .edycja input, .delete input, .dodaj textarea, .edycja textarea, .delete textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+
+.dodaj input[type="text"], .edycja input[type="text"], .usun input[type="text"],
+.dodaj input[type="password"], .edycja input[type="password"], .usun input[type="password"],
+.dodaj input[type="checkbox"], .edycja input[type="checkbox"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.edycja input[type="checkbox"], .dodaj input[type="checkbox"] {
+    width: auto;
+}
+
+.dodaj input[type="submit"], .edycja input[type="submit"], .usun input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.dodaj input[type="submit"]:hover, .edycja input[type="submit"]:hover, .usun input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.dodaj, .edycja, .usun {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.heading {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
