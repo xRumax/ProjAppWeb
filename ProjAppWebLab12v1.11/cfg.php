@@ -5,6 +5,12 @@ $pass = 'admin';
 $adminEmail = "admin@admin.pl";
 $odbiorca = "admin123@admin.pl";
 
+$config = array(
+    'login' => 'admin',
+    'pass' => 'admin',
+    'adminEmail' => 'admin@admin.pl',
+    'odbiorca' => 'admin123@admin.pl',
+);
 
 // Ustawienia połączenia z bazą danych
 $dbhost = 'localhost';

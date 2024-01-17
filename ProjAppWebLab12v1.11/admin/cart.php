@@ -15,7 +15,7 @@
     include("../cfg.php");
 
     echo '<div class="back-btn">
-            <a href="../admin">Powrót</a>
+            <a href="../index.php?idp=Główna">Powrót</a>
           </div>';
 
 
@@ -111,7 +111,7 @@
         <th class="cols">Tytuł</th>
         <th class="cols">Cena brutto</th>
         <th class="cols">Ilość</th>
-        <th class="cols" colspan = 3>Akcje</th>
+        <th class="cols" colspan = 4>Akcje</th>
 
     </tr>';
 
@@ -151,6 +151,7 @@
                                 <td class="tdminus"><a href="cart.php?funkcja=zmniejszIlosc&id=' . $idProduktu . '"><b>-</b></a></td>
                                 <td class="tdplus"><a href="cart.php?funkcja=zwiekszIlosc&id=' . $idProduktu . '"><b>+</b></a>
                                 <td class="tdakcje"><a href="cart.php?funkcja=usunZKoszyka&id=' . $idProduktu . '"><b>Usuń</b></a></td>
+                                <td class="tdakcje"><a href="purchase.php?funkcja=usunZKoszyka&id=' . $idProduktu . '"><b>Kup teraz</b></a></td>
                                 </tr>';
                         }
                     }

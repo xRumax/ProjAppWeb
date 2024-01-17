@@ -24,6 +24,8 @@ if (isset($_GET['idp'])) {
     $strona = 'html/Filmy.html';
   if ($_GET['idp'] == 'Admin')
     $strona = 'admin';
+  if ($_GET['idp'] == 'Koszyk')
+    $strona = 'admin/cart.php';
 
   // $filename = $strona;
 
@@ -64,9 +66,9 @@ if (isset($_GET['idp'])) {
       <li <?php echo ($_GET['idp'] == 'Kontakt') ? 'class="active"' : ''; ?>><a href="index.php?idp=Kontakt">Kontakt</a>
       </li>
       <li <?php echo ($_GET['idp'] == 'Źródła') ? 'class="active"' : ''; ?>><a href="index.php?idp=Źródła">Źródła</a></li>
-      <li <?php echo ($_GET['idp'] == 'JS') ? 'class="active"' : ''; ?>><a href="index.php?idp=JS">JS</a></li>
+      <li <?php echo ($_GET['idp'] == 'koszyk') ? 'class="active"' : ''; ?>><a href="admin/cart.php">Koszyk</a></li>
       <li <?php echo ($_GET['idp'] == 'Filmy') ? 'class="active"' : ''; ?>><a href="index.php?idp=Filmy">Filmy</a></li>
-      <li <?php echo ($_GET['idp'] == 'Admin') ? 'class="active"' : ''; ?>><a href="admin/">Admin</a></li>
+
     </ul>
   </nav>
 
